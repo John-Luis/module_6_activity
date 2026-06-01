@@ -1,36 +1,42 @@
 
 
 class fan:
-    SLOW = 1
-    MEDIUM = 2
-    FAST = 3
+    class fan:
+        # Class constants
+        SLOW = 1
+        MEDIUM = 2
+        FAST = 3
 
-    def __init__(self, speed=SLOW, radius=5.0, color="blue", on=False):
-        self.speed = speed
-        self.radius = float(radius)
-        self.color = color
-        self.on = bool(on)
+        # Constructor with required default values
+        def __init__(self, speed=SLOW, radius=5, color="blue", on=False):
+            # Private data fields (Enforced with double underscores)
+            self.__speed = speed
+            self.__radius = radius
+            self.__color = color
+            self.__on = on
 
-    def get_speed(self):
-        return self.speed
+        # --- ACCESSOR METHODS (Getters) ---
+        def get_speed(self):
+            return self.__speed
 
-    def set_speed(self, speed):
-        self.speed = speed
+        def get_radius(self):
+            return self.__radius
 
-    def get_on(self):
-        return self.on
+        def get_color(self):
+            return self.__color
 
-    def set_on(self, on):
-        self.on = on
+        def get_on(self):
+            return self.__on
 
-    def get_radius(self):
-        return self.radius
+        # --- MUTATOR METHODS (Setters) ---
+        def set_speed(self, speed):
+            self.__speed = speed
 
-    def set_radius(self, radius):
-        self.radius = radius
+        def set_radius(self, radius):
+            self.__radius = radius
 
-    def get_color(self):
-        return self.color
+        def set_color(self, color):
+            self.__color = color
 
-    def set_color(self, color):
-        self.color = color
+        def set_on(self, on):
+            self.__on = on
