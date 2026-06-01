@@ -9,3 +9,10 @@ class car:
         # Accelerate method adds 5 km/h to current speed
         def accelerate(self):
             self.__speed += 5
+
+        # Brake method drops speed by 5 km/h safely
+        def brake(self):
+            if self.__speed >= 5:
+                self.__speed -= 5
+            else:
+                self.__speed = 0
