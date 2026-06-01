@@ -12,3 +12,8 @@ if __name__ == "__main__":
     my_pet.set_name(pet_name)
     my_pet.set_animal_type(pet_type)
     my_pet.set_age(pet_age)
+
+    print("\n--- Pet Registration Details ---")
+    print(f"Pet Name:    {my_pet.get_name()}")
+    print(f"Animal Type: {my_pet.get_animal_type()}")
+    print(f"Pet Age:     {my_pet.get_age()} years old")
