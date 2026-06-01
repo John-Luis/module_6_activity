@@ -1,9 +1,9 @@
 # test_car.py
-from car_class import car
+from car_class import Car
 
 if __name__ == "__main__":
     # Create a Car object
-    my_car = car("2026", "Lamborghini")
+    my_car = Car("2026", "Lamborghini")
 
     # Call the accelerate method 5 times
     print("Accelerating...")
