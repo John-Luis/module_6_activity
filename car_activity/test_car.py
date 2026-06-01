@@ -15,4 +15,4 @@ if __name__ == "__main__":
     # Call the brake method 5 times
     for i in range(5):
         my_car.brake()[cite: 315]
-        print(f"Current speed: {my_car.get_speed()} km/h")[cite: 315]
+        print(f"Current speed: {my_car.get_speed()} km/h")
