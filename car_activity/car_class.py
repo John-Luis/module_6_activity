@@ -1,22 +1,41 @@
-# car.py
+# car_class.py
 class Car:
-    def __init__(self, year_model, make):
-        # Private data attributes using double underscores
-        self.__year_model = year_model
+    def __init__(self, year, make):
+        self.__year = year
         self.__make = make
-        self.__speed = 0  # Default speed starts at 0
+        self.__speed = 0
+        self.__gear = 1  # Starts at Gear 1
 
-    # Accelerate method adds 5 km/h to current speed
     def accelerate(self):
         self.__speed += 5
+        self.__update_gear()  # Auto-shift gear after accelerating
 
-        # Brake method drops speed by 5 km/h safely
     def brake(self):
-        if self.__speed >= 5:
-            self.__speed -= 5
-        else:
+        self.__speed -= 5
+        if self.__speed < 0:
             self.__speed = 0
+        self.__update_gear()  # Auto-shift gear after braking
 
-        # Returns the current speed
+    def __update_gear(self):
+        """Internal helper to calculate gear based on 5km/h steps (Max 25 km/h)"""
+        if self.__speed == 0:
+            self.__gear = 1
+        elif self.__speed <= 5:
+            self.__gear = 1
+        elif self.__speed <= 10:
+            self.__gear = 2
+        elif self.__speed <= 15:
+            self.__gear = 3
+        elif self.__speed <= 20:
+            self.__gear = 4
+        else:
+            self.__gear = 5  # Top gear at 25 km/h
+
     def get_speed(self):
         return self.__speed
+
+    def get_gear(self):
+        return self.__gear
+
+    def get_name(self):
+        return f"{self.__year} {self.__make}"
