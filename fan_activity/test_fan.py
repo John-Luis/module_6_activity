@@ -1,25 +1,28 @@
-# We import the Fan class from our fan.py file
+# test_fan.py
+import time
+import sys
 from fan_class import fan
 
-if __name__ == "__main__":
-    # Object 1: maximum speed (FAST), radius 10, color yellow, turned on
-    fan_1 = fan(speed=fan.FAST, radius=10, color="yellow", on=True)
 
-    # Object 2: medium speed, radius 5, color blue, turned off
-    fan_2 = fan(speed=fan.MEDIUM, radius=5, color="blue", on=False)
+def simulate_fan_rotation(fan_obj, fan_label):
+    """Simulates a spinning fan blade in the terminal based on its speed state."""
+    print(f"\n[!] ACCESSING CORES FOR {fan_label.upper()}...")
+    time.sleep(0.3)
 
-    # Display fan_1 properties
-    print("Fan 1 Properties:")
-    print(f"Speed: {fan_1.get_speed()}")
-    print(f"Radius: {fan_1.get_radius()}")
-    print(f"Color: {fan_1.get_color()}")
-    print(f"Is On: {fan_1.get_on()}")
+    # Determine rotational animation speed based on fan speed configuration
+    if not fan_obj.get_on():
+        print(f"[○] STATUS: STATIONARY (POWER OFF)")
+        return
 
-    print("-" * 20)
+    speed_level = fan_obj.get_speed()
+    if speed_level == fan.SLOW:
+        delay = 0.2
+        speed_text = "LOW VELOCITY"
+    elif speed_level == fan.MEDIUM:
+        delay = 0.1
+        speed_text = "BALANCED VELOCITY"
+    else:
+        delay = 0.03
+        speed_text = "MAXIMUM ROTATIONAL VELOCITY"
 
-    # Display fan_2 properties
-    print("Fan 2 Properties:")
-    print(f"Speed: {fan_2.get_speed()}")
-    print(f"Radius: {fan_2.get_radius()}")
-    print(f"Color: {fan_2.get_color()}")
-    print(f"Is On: {fan_2.get_on()}")
+    print(f"[▶] ENGINE ENGAGED // MODE: {speed_text}")
